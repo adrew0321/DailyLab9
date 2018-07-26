@@ -1,0 +1,7 @@
+C:\DotNetBootcamp\GrandCircus\C#.NETbootcamp\DailyLabs\LabNumber9\LabNumber9\bin\Debug\LabNumber9.exe.config
+C:\DotNetBootcamp\GrandCircus\C#.NETbootcamp\DailyLabs\LabNumber9\LabNumber9\bin\Debug\LabNumber9.exe
+C:\DotNetBootcamp\GrandCircus\C#.NETbootcamp\DailyLabs\LabNumber9\LabNumber9\bin\Debug\LabNumber9.pdb
+C:\DotNetBootcamp\GrandCircus\C#.NETbootcamp\DailyLabs\LabNumber9\LabNumber9\obj\Debug\LabNumber9.csproj.CoreCompileInputs.cache
+C:\DotNetBootcamp\GrandCircus\C#.NETbootcamp\DailyLabs\LabNumber9\LabNumber9\obj\Debug\LabNumber9.exe
+C:\DotNetBootcamp\GrandCircus\C#.NETbootcamp\DailyLabs\LabNumber9\LabNumber9\obj\Debug\LabNumber9.pdb
+C:\DotNetBootcamp\GrandCircus\C#.NETbootcamp\DailyLabs\LabNumber9\LabNumber9\obj\Debug\LabNumber9.csprojAssemblyReference.cache
