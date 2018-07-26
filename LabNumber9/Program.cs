@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace LabNumber8
 {
@@ -9,12 +10,13 @@ namespace LabNumber8
 
             //Write a program that will recognize invalid inputs when the user requests information about students in a class
 
-            string[] students = { "A'Keem Drew", "Terrell White", "Bijaya Acharya", "Christopher Schwarts", "Christopher Singleton", "DeMarko Cross", "Kristen Rieske", "Patrick Turner", "Terrie Thorpe", "Zachary Theodore", "Jesse Ashton", "William Twomey", "William Chapman", "Samantha Mazzola" };
+            List<string> students = new List<string> { "A'Keem Drew", "Bijaya Acharya", "Christopher Schwarts", "Christopher Singleton", "DeMarko Cross", "Kristen Rieske", "Patrick Turner", "Terrie Thorpe", "Zachary Theodore", "Jesse Ashton", "Terrell White", "William Twomey", "William Chapman", "Samantha Mazzola" };
 
-            string[] hometowns = { "Detroit, MI (The Trap to be specific)", "Heaven", "Ohio", "Tokyo", "Las Vegas", "New York", "Antartica", "The Islands", "The Boonies", "here everybody knows your name", "Southfield", "The Green Zone", "The Red Zone", "The Twilight Zone" };
+            List<string> hometowns = new List<string> { "Detroit, MI (The Trap to be specific)", "Heaven", "Ohio", "Tokyo", "Las Vegas", "New York", "Antartica", "The Islands", "The Boonies", "here everybody knows your name", "Southfield", "The Green Zone", "The Red Zone", "The Twilight Zone" };
 
-            string[] favoriteFoods = { "Lasagna", "Chicken", "Pig-Feet", "Moose-Knuckles", "Ice Cream", "Brains", "Texas de Brazil", "Lint", "Dust Bunnies", "Pizza", "Steak", "Spaghetti", "Salmon", "Boogers" };
+            List<string> favoriteFoods = new List<string> { "Lasagna", "Chicken", "Pig-Feet", "Moose-Knuckles", "Ice Cream", "Brains", "Texas de Brazil", "Lint", "Dust Bunnies", "Pizza", "Steak", "Spaghetti", "Salmon", "Boogers" };
 
+            List<string> favoriteColors = new List<string> { "Blue", "Red", "Yellow", "Tickle-Me-Pink", "Aquamarine", "Orange", "Prince Purple", "Lavendar", "Watermelon Blue", "Cyan", "Teal", "Black", "Brown", "Violet" };
 
 
             //***INPUT***
@@ -25,7 +27,7 @@ namespace LabNumber8
             bool repeat1 = true;
             while (repeat1)
             {
-                for (int i = 0; i < students.Length; i++)
+                for (int i = 0; i < students.Count; i++)
                 {
                     Console.WriteLine(i + 1 + ". " + students[i]); //Prints students Array
                 }
@@ -36,11 +38,11 @@ namespace LabNumber8
                 {
                     int userInput = int.Parse(Console.ReadLine().ToLower());
 
-                    Console.WriteLine($"\nStudent {userInput} is {students[userInput - 1]}. What would you like to know about {students[userInput - 1]}? (enter or \"hometown\" or \"favorite food\")");
+                    Console.WriteLine($"\nStudent {userInput} is {students[userInput - 1]}. What would you like to know about {students[userInput - 1]}? (enter, \"hometown\", \"favorite food\", or \"favorite color\")");
 
                     string userSelection = Console.ReadLine().ToLower();
 
-                    repeat1 = StudentFactChecker(students, hometowns, favoriteFoods, repeat1, userInput, userSelection);
+                    repeat1 = StudentFactChecker(students, hometowns, favoriteFoods, favoriteColors, repeat1, userInput, userSelection);
                 }
                 catch (FormatException)
                 {
@@ -70,7 +72,7 @@ namespace LabNumber8
             }
         }
 
-        private static bool StudentFactChecker(string[] students, string[] hometowns, string[] favoriteFoods, bool repeat1, int userInput, string userSelection)
+        private static bool StudentFactChecker(List<string> students, List<string> hometowns, List<string> favoriteFoods, List<string> favoriteColors, bool repeat1, int userInput, string userSelection)
         {
             if (userSelection == "hometown")
             {
@@ -102,6 +104,22 @@ namespace LabNumber8
                     Console.WriteLine("Thanks!\n");
                     return false;
                 }
+            }
+            else if (userSelection == "favorite color")
+            {
+                Console.WriteLine($"\n{students[userInput - 1]}'s favorite food is: {favoriteColors[userInput - 1]}. Would you like to know more? (enter \"yes\" or \"no\")\n ");
+                string continueResponse = Console.ReadLine();
+
+                if (continueResponse == "yes")
+                {
+                    return true;
+                }
+                else if (continueResponse == "no")
+                {
+                    Console.WriteLine("Thanks!\n");
+                    return false;
+                }
+
             }
             else
             {
