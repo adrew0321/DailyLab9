@@ -38,7 +38,7 @@ namespace LabNumber8
                 {
                     int userInput = int.Parse(Console.ReadLine().ToLower());
 
-                    Console.WriteLine($"\nStudent {userInput} is {students[userInput - 1]}. What would you like to know about {students[userInput - 1]}? (enter, \"hometown\", \"favorite food\", or \"favorite color\")");
+                    Console.WriteLine($"\nStudent {userInput} is {students[userInput - 1]}. What would you like to know about {students[userInput - 1]}? (enter \"hometown\", \"favorite food\", or \"favorite color\")");
 
                     string userSelection = Console.ReadLine().ToLower();
 
@@ -64,6 +64,11 @@ namespace LabNumber8
                     Console.WriteLine("Error: Input can not be less than 1 or greater than 14\n");
                     repeat1 = true;
                 }
+                catch (ArgumentOutOfRangeException)
+                {
+                    Console.WriteLine("Error: Please insert a number between 1 - 14\n");
+                    repeat1 = true;
+                }
                 catch (Exception e)
                 {
                     Console.WriteLine("Critical Error\n");
@@ -72,11 +77,11 @@ namespace LabNumber8
             }
         }
 
-        private static bool StudentFactChecker(List<string> students, List<string> hometowns, List<string> favoriteFoods, List<string> favoriteColors, bool repeat1, int userInput, string userSelection)
+        public static bool StudentFactChecker(List<string> students, List<string> hometowns, List<string> favoriteFoods, List<string> favoriteColors, bool repeat1, int userInput, string userSelection)
         {
             if (userSelection == "hometown")
             {
-                Console.Write($"\n{students[userInput - 1]} is from {hometowns[userInput - 1]}. Would you like to know more (enter \"yes\" or \"no\")?\n");
+                Console.Write($"\n{students[userInput - 1]} is from {hometowns[userInput - 1]}. Would you like to know more? (enter \"yes\" or \"no\")?\n");
                 string continueResponse = Console.ReadLine();
 
                 if (continueResponse == "yes")
@@ -107,7 +112,7 @@ namespace LabNumber8
             }
             else if (userSelection == "favorite color")
             {
-                Console.WriteLine($"\n{students[userInput - 1]}'s favorite food is: {favoriteColors[userInput - 1]}. Would you like to know more? (enter \"yes\" or \"no\")\n ");
+                Console.WriteLine($"\n{students[userInput - 1]}'s favorite color is: {favoriteColors[userInput - 1]}. Would you like to know more? (enter \"yes\" or \"no\")\n ");
                 string continueResponse = Console.ReadLine();
 
                 if (continueResponse == "yes")
